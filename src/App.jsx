@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // import AppRouter from './AppRouter.jsx';
 import Header from './Header.jsx';
+import Footer from './Footer.jsx';
 import ActivityFeeds from './components/ActivityFeeds.jsx';
 import ActivityDetail from './components/ActivityDetail.jsx';
 
@@ -22,6 +23,8 @@ const App = () => {
           <Route path="/allcalls" component={() => <h1>All Calls </h1>} />
           <Route path="/archived" component={() => <h1>Archived </h1>} />
         </Switch>
+
+        <Footer />
       </div>
     </BrowserRouter>
   );

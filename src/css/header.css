@@ -1,12 +1,41 @@
 header {
   height: 40px;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 20px;
   text-align: center;
+
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header svg {
-  display: block;
-  width: 100%; height: 100%;
+header .navLogo {
+  width: 90%;
+  text-align: left;
+}
+
+header .navLogo svg {
+  width: 5rem;
+}
+
+header .navMenu {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .navMenu a {
+  margin: 0 10px;
+}
+
+header .tuneSvg {
+  margin-top: 20px;
+}
+
+header .tuneSvg svg {
+  background-color: salmon;
 }
