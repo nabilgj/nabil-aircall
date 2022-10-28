@@ -13,10 +13,15 @@ class ActivityDetail extends Component {
 
   componentDidMount() {
     console.log('ActivityDetail', this.props.match.params.id);
+    console.log('ActivityDetail componentDidMount', this.state.callData);
 
-    fetch(
-      `https://aircall-job.herokuapp.com/activities/${this.props.match.params.id}`
-    )
+    const id = this.props.match.params.id;
+
+    const callId = JSON.parse(window.localStorage.getItem('callId'));
+
+    console.log('callId', callId);
+
+    fetch(`https://aircall-job.herokuapp.com/activities/${id}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -28,15 +33,69 @@ class ActivityDetail extends Component {
   render() {
     return (
       <div className="detailContainer">
-        <h1>Call Data</h1>
+        <div className="detailCont">
+          {this.state.callData && (
+            <h3>
+              Via &nbsp;&nbsp;
+              <span style={{ fontWeight: 'bold' }}>
+                {this.state.callData.via}
+              </span>
+            </h3>
+          )}
 
-        <div>
-          <h3>Via - {this.state.callData.via} </h3>
-          <h3>From - {this.state.callData.from} </h3>
-          <h3>Duration - {this.state.callData.duration} sec </h3>
-          <h3>Call type - {this.state.callData.call_type} </h3>
-          <h3>Direction - {this.state.callData.direction} </h3>
-          {this.state.callData.to && <h3>To {this.state.callData.to} </h3>}
+          {this.state.callData && (
+            <h3>
+              From &nbsp;&nbsp;
+              <span style={{ fontWeight: 'bold' }}>
+                {this.state.callData.from}
+              </span>
+            </h3>
+          )}
+
+          {this.state.callData && (
+            <h3>
+              Duration &nbsp;&nbsp;
+              <span style={{ fontWeight: 'bold' }}>
+                {this.state.callData.duration} sec
+              </span>
+            </h3>
+          )}
+
+          {this.state.callData && (
+            <h3>
+              Call Type &nbsp;&nbsp;
+              <span style={{ fontWeight: 'bold' }}>
+                {this.state.callData.call_type}
+              </span>
+            </h3>
+          )}
+
+          {this.state.callData && (
+            <h3>
+              Direction &nbsp;&nbsp;
+              <span style={{ fontWeight: 'bold' }}>
+                {this.state.callData.direction}
+              </span>
+            </h3>
+          )}
+
+          {this.state.callData && (
+            <h3>
+              To &nbsp;&nbsp;
+              <span style={{ fontWeight: 'bold' }}>
+                {this.state.callData.to}
+              </span>
+            </h3>
+          )}
+
+          <div className="buttonContainers">
+            <Link to="/inbox">
+              <button>Back</button>
+            </Link>
+            <Link to="archived">
+              <button>Archived</button>
+            </Link>
+          </div>
         </div>
       </div>
     );

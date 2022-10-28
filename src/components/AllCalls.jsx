@@ -25,7 +25,7 @@ class AllCalls extends Component {
         //   console.log(arr.indexOf(val).via === arr.via)
         // );
 
-        // console.log('AllCalls uniqueCalls', uniqueCalls);
+        console.log('AllCalls uniqueCalls', data);
 
         this.setState(() => ({ callData: data }));
       });
@@ -50,7 +50,10 @@ class AllCalls extends Component {
                     <VoiceMail />
                   )}
 
-                  <h3>{call.via} </h3>
+                  <div className="viaContainer">
+                    <h3>{call.via} </h3>
+                    <p>{call.from}</p>
+                  </div>
                 </div>
               ))
             : 'loading...'}
