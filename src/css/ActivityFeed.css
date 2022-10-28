@@ -1,0 +1,15 @@
+#app .callContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1px solid black;
+  border-radius: 12px;
+
+  font-size: 12px;
+
+  width: 90%;
+  margin: 12px 0;
+  padding: 0 6px;
+  overflow-x: hidden;
+}
