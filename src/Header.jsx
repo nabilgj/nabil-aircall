@@ -69,10 +69,10 @@ const Header = () => {
       </div>
 
       <div className="navMenu">
+        <Link to="/allcalls">All Calls</Link>
         <Link to="/inbox" exact>
           Inbox
         </Link>
-        <Link to="/allcalls">All Calls</Link>
       </div>
 
       <div>
