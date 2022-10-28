@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import MissedCall from '../svg/MissedCall.jsx';
 import Answered from '../svg/Answered.jsx';
@@ -34,7 +34,7 @@ class AllCalls extends Component {
   render() {
     return (
       <div className="allCall">
-        <Link to="/inbox">
+        <NavLink to="/inbox">
           {this.state.callData
             ? this.state.callData.map((call) => (
                 <div className="allcallContainer" key={call.id}>
@@ -57,7 +57,7 @@ class AllCalls extends Component {
                 </div>
               ))
             : 'loading...'}
-        </Link>
+        </NavLink>
       </div>
     );
   }

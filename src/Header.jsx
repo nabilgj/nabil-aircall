@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header>
       <div className="navLogo">
-        <Link to="/">
+        <NavLink to="/">
           <svg
             width="486px"
             height="168px"
@@ -65,22 +65,25 @@ const Header = () => {
               />
             </g>
           </svg>
-        </Link>
+        </NavLink>
       </div>
 
       <div className="navMenu">
-        <Link to="/allcalls">All Calls</Link>
-        <Link to="/inbox" exact>
+        <NavLink to="/inbox" exact activeClassName="activeMenu">
           Inbox
-        </Link>
+        </NavLink>
+
+        <NavLink to="/archive" activeClassName="activeMenu">
+          Archive
+        </NavLink>
       </div>
 
       <div>
-        <Link to="/settings">
+        <NavLink to="/settings">
           <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
             <path d="M13.475 8.45v-.925h3V3.6h.925v3.925h3v.925Zm3 11.925v-8.85h.925v8.85Zm-9.85 0V16.45h-3v-.925h6.925v.925h-3v3.925Zm0-7.925V3.6h.925v8.85Z" />
           </svg>
-        </Link>
+        </NavLink>
       </div>
     </header>
   );

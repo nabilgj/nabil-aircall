@@ -1,0 +1,26 @@
+#app .archivedContainer {
+  margin: 1rem auto;
+
+  display: block;
+
+  font-size: 1rem;
+}
+
+#app .archivedCont {
+  margin: 16px;
+
+  border: 1px solid black;
+  border-radius: 12px;
+  text-align: left;
+
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#app .detailCont h3 {
+  margin: 8px;
+}

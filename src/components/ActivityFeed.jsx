@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import MissedCall from '../svg/MissedCall.jsx';
 import Answered from '../svg/Answered.jsx';
@@ -50,7 +50,7 @@ class ActivityFeed extends Component {
     return (
       <div className="callContainer">
         <div>
-          <Link to={`/inbox/${this.props.calls.id}`}>
+          <NavLink to={`/inbox/${this.props.calls.id}`}>
             {this.props.calls && this.props.calls.call_type === 'missed' && (
               <MissedCall />
             )}
@@ -62,7 +62,7 @@ class ActivityFeed extends Component {
             {this.props.calls && this.props.calls.call_type === 'voicemail' && (
               <VoiceMail />
             )}
-          </Link>
+          </NavLink>
         </div>
 
         <div
@@ -72,17 +72,17 @@ class ActivityFeed extends Component {
             marginLeft: '12px',
           }}
         >
-          <Link to={`/inbox/${this.props.calls.id}`}>
+          <NavLink to={`/inbox/${this.props.calls.id}`}>
             <p>{this.props.calls.to ? this.props.calls.to : 'Unknown'}</p>
             <p>tried to call on</p>
             <p>{this.props.calls.from}</p>
-          </Link>
+          </NavLink>
         </div>
 
         <div style={{ display: 'flex', width: 'auto' }}>
-          <Link to={`/inbox/${this.props.calls.id}`}>
+          <NavLink to={`/inbox/${this.props.calls.id}`}>
             {this.state.time} {this.state.timeperiod}
-          </Link>
+          </NavLink>
         </div>
       </div>
     );
