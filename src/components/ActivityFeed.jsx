@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 
+import MissedCall from '../svg/MissedCall.jsx';
+import Answered from '../svg/Answered.jsx';
+import VoiceMail from '../svg/VoiceMail.jsx';
+
 class ActivityFeed extends Component {
   constructor(props) {
     super(props);
@@ -13,17 +17,16 @@ class ActivityFeed extends Component {
   }
 
   componentDidMount() {
+    const { call_type, created_at } = this.props.calls;
     console.log('componentDidMount', this.props.calls);
 
-    const { call_type, created_at } = this.props.calls;
-
     const callTime = created_at.split('T')[1];
-    console.log('callTime', callTime);
+    // console.log('callTime', callTime);
     const callTime2 = callTime.split('.')[0];
-    console.log('callTime2', callTime2);
+    // console.log('callTime2', callTime2);
 
     const callTime3 = callTime.split(':')[0];
-    console.log('callTime3', callTime3);
+    // console.log('callTime3', callTime3);
 
     let timeperiod = '';
     if (callTime3 >= 1 && callTime3 <= 12) {
@@ -46,7 +49,17 @@ class ActivityFeed extends Component {
       <div className="callContainer">
         <div>
           <Link to={`/inbox/${this.props.calls.id}`}>
-            <p>{this.props.calls.call_type}</p>
+            {this.props.calls && this.props.calls.call_type === 'answered' && (
+              <Answered />
+            )}
+
+            {this.props.calls && this.props.calls.call_type === 'missed' && (
+              <MissedCall />
+            )}
+
+            {this.props.calls && this.props.calls.call_type === 'voicemail' && (
+              <VoiceMail />
+            )}
           </Link>
         </div>
 

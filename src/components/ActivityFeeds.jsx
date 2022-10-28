@@ -15,8 +15,6 @@ class ActivityFeeds extends React.Component {
     fetch('https://aircall-job.herokuapp.com/activities')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         // let callData = Object.keys(data)
         //   .map((dataKey) => {
         //     return [...Array(data[dataKey])];
