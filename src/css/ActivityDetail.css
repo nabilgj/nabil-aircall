@@ -1,8 +1,48 @@
 #app .detailContainer {
+  margin: 1rem auto;
+
   display: block;
-  margin: 12px auto;
 
-  text-align: center;
+  font-size: 1rem;
+}
 
-  background-color: salmon;
+#app .detailCont {
+  margin: 16px;
+
+  border: 1px solid black;
+  border-radius: 12px;
+  text-align: left;
+
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#app .detailCont h3 {
+  margin: 8px;
+}
+
+#app .buttonContainers {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 12px;
+
+  width: 100%;
+}
+
+#app .buttonContainers button {
+  padding: 8px;
+  border: 1px solid #233142;
+  border-radius: 12px;
+  transition: all 0.6s;
+}
+
+#app .buttonContainers button:hover {
+  color: #fff;
+  background-color: #233142;
+  cursor: pointer;
 }

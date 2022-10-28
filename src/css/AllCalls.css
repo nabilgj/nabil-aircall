@@ -1,9 +1,9 @@
 #app .allCall {
-  overflow-y: scroll;
-
-  margin: 12px auto 0 auto;
+  margin: 1rem auto;
 
   text-align: center;
+
+  font-size: 1rem;
 }
 
 #app .allcallContainer {
@@ -27,4 +27,17 @@
   background: #233142;
 
   color: #fff;
+  border: 1px solid #fff;
+}
+
+#app .allcallContainer svg:hover {
+  color: #fff !important;
+  border: 1px solid salmon;
+}
+
+#app .viaContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

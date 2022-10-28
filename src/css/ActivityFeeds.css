@@ -1,7 +1,5 @@
 #app .callsContainer {
-  display: flex;
-  flex-direction: column;
+  margin: 1rem auto;
 
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
