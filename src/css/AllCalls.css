@@ -1,0 +1,30 @@
+#app .allCall {
+  overflow-y: scroll;
+
+  margin: 12px auto 0 auto;
+
+  text-align: center;
+}
+
+#app .allcallContainer {
+  margin: 16px;
+
+  border: 1px solid black;
+  border-radius: 12px;
+  text-align: center;
+
+  padding: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#app .allcallContainer:hover {
+  cursor: pointer;
+  transition: all 0.6s;
+
+  background: #233142;
+
+  color: #fff;
+}

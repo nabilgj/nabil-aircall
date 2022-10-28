@@ -11,8 +11,9 @@
 
 #app .container {
   width: 376px;
-  height: auto;
-  /* height: 720px; */
+  /* height: auto; */
+  min-height: 800px;
+  height: 100%;
   z-index: 100;
 
   background: #fff;
