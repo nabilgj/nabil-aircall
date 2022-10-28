@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class ActivityDetail extends Component {
   constructor(props) {
@@ -8,18 +8,17 @@ class ActivityDetail extends Component {
 
     this.state = {
       callData: [],
+      archiveData: false,
     };
   }
 
   componentDidMount() {
-    console.log('ActivityDetail', this.props.match.params.id);
-    console.log('ActivityDetail componentDidMount', this.state.callData);
+    console.log('componentDidMount');
+    console.log('ActivityDetail', this.props);
 
     const id = this.props.match.params.id;
 
     const callId = JSON.parse(window.localStorage.getItem('callId'));
-
-    console.log('callId', callId);
 
     fetch(`https://aircall-job.herokuapp.com/activities/${id}`)
       .then((response) => response.json())
@@ -30,7 +29,33 @@ class ActivityDetail extends Component {
       });
   }
 
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ is_archived: true }),
+    };
+
+    const id = this.props.match.params.id;
+
+    fetch(`https://aircall-job.herokuapp.com/activities/${id}`, requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('requestOptions componentDidUpdate', data);
+
+        // this.setState(() => ({ archiveData: data }));
+      });
+  }
+
+  archivedHandler() {
+    console.log('archivedHandler', this.props);
+    this.props.history.replace('/archive');
+  }
+
   render() {
+    console.log('render');
     return (
       <div className="detailContainer">
         <div className="detailCont">
@@ -89,12 +114,12 @@ class ActivityDetail extends Component {
           )}
 
           <div className="buttonContainers">
-            <Link to="/inbox">
+            <NavLink to="/inbox">
               <button>Back</button>
-            </Link>
-            <Link to="archived">
-              <button>Archived</button>
-            </Link>
+            </NavLink>
+            <NavLink to="/archived">
+              <button onClick={this.archivedHandler}>Archived</button>
+            </NavLink>
           </div>
         </div>
       </div>

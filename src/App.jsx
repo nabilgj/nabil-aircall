@@ -8,6 +8,7 @@ import Header from './Header.jsx';
 import AllCalls from './components/AllCalls.jsx';
 import ActivityFeeds from './components/ActivityFeeds.jsx';
 import ActivityDetail from './components/ActivityDetail.jsx';
+import Archived from './components/Archived.jsx';
 import Footer from './Footer.jsx';
 
 const App = () => {
@@ -19,9 +20,13 @@ const App = () => {
 
         <Switch>
           <Route exact path="/" component={AllCalls} />
+
           <Route path="/inbox/:id" component={ActivityDetail} />
           <Route path="/inbox" component={ActivityFeeds} />
-          <Route path="/archived" component={() => <h1>Archived </h1>} />
+
+          <Route path="/archive/:id" component={() => <h1>yes archived</h1>} />
+
+          <Route path="/archive" component={Archived} />
         </Switch>
 
         <Footer />
