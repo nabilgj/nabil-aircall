@@ -9,7 +9,22 @@
   font-size: 12px;
 
   width: 90%;
+  height: 4rem;
   margin: 12px 0;
   padding: 0 6px;
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+.callContainer .calls {
+  display: flex;
+  align-items: center;
+
+  margin: 0 auto;
+
+  background: salmon;
+}
+
+#app a {
+  text-decoration: none;
+  color: inherit;
 }
