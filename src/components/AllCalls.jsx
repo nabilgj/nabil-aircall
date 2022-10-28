@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import MissedCall from '../svg/MissedCall.jsx';
 import Answered from '../svg/Answered.jsx';
 import VoiceMail from '../svg/VoiceMail.jsx';
@@ -32,25 +34,27 @@ class AllCalls extends Component {
   render() {
     return (
       <div className="allCall">
-        {this.state.callData
-          ? this.state.callData.map((call) => (
-              <div className="allcallContainer" key={call.id}>
-                {call.call_type && call.call_type === 'missed' && (
-                  <MissedCall />
-                )}
+        <Link to="/inbox">
+          {this.state.callData
+            ? this.state.callData.map((call) => (
+                <div className="allcallContainer" key={call.id}>
+                  {call.call_type && call.call_type === 'missed' && (
+                    <MissedCall />
+                  )}
 
-                {call.call_type && call.call_type === 'answered' && (
-                  <Answered />
-                )}
+                  {call.call_type && call.call_type === 'answered' && (
+                    <Answered />
+                  )}
 
-                {call.call_type && call.call_type === 'voicemail' && (
-                  <VoiceMail />
-                )}
+                  {call.call_type && call.call_type === 'voicemail' && (
+                    <VoiceMail />
+                  )}
 
-                <h3>{call.via} </h3>
-              </div>
-            ))
-          : 'loading...'}
+                  <h3>{call.via} </h3>
+                </div>
+              ))
+            : 'loading...'}
+        </Link>
       </div>
     );
   }
