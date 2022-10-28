@@ -16,7 +16,7 @@ class AllCalls extends Component {
   }
 
   componentDidMount() {
-    console.log('ActivityDetail', this.props.match.params.id);
+    // console.log('ActivityDetail', this.props.match.params.id);
 
     fetch(`https://aircall-job.herokuapp.com/activities`)
       .then((response) => response.json())

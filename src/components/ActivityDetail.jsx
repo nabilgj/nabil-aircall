@@ -8,15 +8,16 @@ class ActivityDetail extends Component {
 
     this.state = {
       callData: [],
-      archiveData: false,
+      archived: false,
     };
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
-    console.log('ActivityDetail', this.props);
+    // console.log('componentDidMount');
 
     const id = this.props.match.params.id;
+    let archived = this.props.location.search;
+    let isArchived = archived.split('=')[1];
 
     const callId = JSON.parse(window.localStorage.getItem('callId'));
 
@@ -25,17 +26,19 @@ class ActivityDetail extends Component {
       .then((data) => {
         console.log(data);
 
-        this.setState(() => ({ callData: data }));
+        this.setState(() => ({ callData: data, archived: isArchived }));
       });
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate');
+    console.log('componentDidUpdate', this.state.archived);
+
+    const archivedB = this.state.archived;
 
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ is_archived: true }),
+      body: JSON.stringify(archivedB),
     };
 
     const id = this.props.match.params.id;
@@ -43,19 +46,18 @@ class ActivityDetail extends Component {
     fetch(`https://aircall-job.herokuapp.com/activities/${id}`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        console.log('requestOptions componentDidUpdate', data);
-
+        // console.log('requestOptions componentDidUpdate', data);
         // this.setState(() => ({ archiveData: data }));
       });
   }
 
   archivedHandler() {
-    console.log('archivedHandler', this.props);
+    // console.log('archivedHandler', this.props);
     this.props.history.replace('/archive');
   }
 
   render() {
-    console.log('render');
+    // console.log('render');
     return (
       <div className="detailContainer">
         <div className="detailCont">
@@ -118,7 +120,9 @@ class ActivityDetail extends Component {
               <button>Back</button>
             </NavLink>
             <NavLink to="/archived">
-              <button onClick={this.archivedHandler}>Archived</button>
+              <button disabled={true} onClick={this.archivedHandler}>
+                Archived Not Availble
+              </button>
             </NavLink>
           </div>
         </div>

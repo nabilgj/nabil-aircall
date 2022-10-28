@@ -16,7 +16,7 @@ class Archived extends Component {
       .then((response) => response.json())
       .then((data) => {
         const archivedData = data.find((aData) => aData.is_archived);
-        console.log('archived componentDidMount', archivedData);
+        // console.log('archived componentDidMount', archivedData);
 
         this.setState(() => ({ calls: archivedData }));
       });
@@ -83,7 +83,7 @@ class Archived extends Component {
               </h3>
             )}
 
-            <div className="buttonContainers">
+            <div className="backButton">
               <NavLink to="/inbox">
                 <button>Back</button>
               </NavLink>

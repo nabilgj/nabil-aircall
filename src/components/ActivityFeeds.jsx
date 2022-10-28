@@ -15,6 +15,7 @@ class ActivityFeeds extends React.Component {
     fetch('https://aircall-job.herokuapp.com/activities')
       .then((response) => response.json())
       .then((data) => {
+        // console.log('ActivityFeeds', data);
         this.setState(() => ({ calls: data }));
       });
   }
@@ -26,7 +27,7 @@ class ActivityFeeds extends React.Component {
           ? this.state.calls.map((call) => (
               <ActivityFeed key={call.id} calls={call} />
             ))
-          : 'no calls'}
+          : 'loading...'}
       </div>
     );
   }

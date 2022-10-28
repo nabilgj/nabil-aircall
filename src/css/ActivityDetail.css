@@ -41,8 +41,13 @@
   transition: all 0.6s;
 }
 
-#app .buttonContainers button:hover {
+/* #app .buttonContainers button:hover {
   color: #fff;
   background-color: #233142;
   cursor: pointer;
+} */
+
+#app .buttonContainers button:disabled {
+  border: 1px solid #ccc;
+  cursor: not-allowed;
 }
